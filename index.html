@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Host Family | Access Canada</title>
+  <meta name="description" content="Become a host family for international students from Japan in Toronto (GTA), Ottawa, and Montreal. Short and long stays available." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary: #2a3b8c;   
+      --primary-600:#233274;
+      --accent: #ff6f00;    
+      --accent-600:#e46300;
+      --bg:#0f1223;         
+      --surface:#ffffff;   
+      --text:#0c1020;       
+      --muted:#5d6378;      
+      --ring: rgba(42, 59, 140, .18);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(15,18,35,.12);
+    }
+
+    *,*::before,*::after{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; color:var(--text); background:linear-gradient(180deg,#f6f8ff, #eef2ff 30%, #ffffff 65%);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.65;
+    }
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(1100px, 92%); margin-inline:auto; }
+
+    .nav{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(255,255,255,.75); border-bottom:1px solid rgba(13,24,64,.08);
+    }
+    .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:.8rem 0; }
+    .brand{ display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.3px; color:var(--primary); }
+    .brand .logo{ width:34px; height:34px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(145deg,var(--primary),#3a4db5); color:#fff; box-shadow:inset 0 0 0 2px rgba(255,255,255,.15); font-family:Montserrat, sans-serif; font-size:.9rem; }
+    .nav-links{ display:flex; align-items:center; gap:1rem; }
+    .nav-links a{ padding:.55rem .8rem; border-radius:10px; font-weight:600; color:#1a1f36; }
+    .nav-links a:hover{ background:#f0f3ff; color:var(--primary); }
+    .cta{ background:var(--accent); color:#fff; padding:.65rem 1rem; border-radius:12px; font-weight:700; box-shadow:0 8px 16px rgba(255,111,0,.28); }
+    .cta:hover{ background:var(--accent-600); }
+    .burger{ display:none; border:0; background:transparent; padding:.4rem; }
+
+
+    @media (max-width: 760px){
+      .nav-links{ display:none; }
+      .burger{ display:block; }
+    }
+
+    .drawer{ position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; }
+    .drawer.open{ display:block; }
+    .sheet{ position:absolute; right:0; top:0; height:100%; width:min(86%, 360px); background:#fff; box-shadow: -10px 0 30px rgba(0,0,0,.25); padding:1rem; display:flex; flex-direction:column; gap:.6rem; }
+    .sheet a{ padding:.9rem 1rem; border-radius:12px; font-weight:600; }
+    .sheet a:hover{ background:#f3f5ff; color:var(--primary); }
+
+    
+    .hero{
+      position:relative; isolation:isolate; min-height:90vh; display:grid; place-items:center; overflow:hidden;
+      background: #0d1335;
+    }
+    .hero::before{
+      content:""; position:absolute; inset:0; background:url('Japan.jpeg') center/cover no-repeat; opacity:.55; filter:contrast(1.05) saturate(1.05);
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; background:radial-gradient(60% 60% at 70% 20%, rgba(42,59,140,.35) 0%, transparent 60%), linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55));
+    }
+    .hero-inner{ position:relative; z-index:1; text-align:center; color:#fff; padding:6rem 0 4rem; }
+    .eyebrow{ display:inline-block; padding:.35rem .65rem; border-radius:999px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); font-weight:600; letter-spacing:.3px; }
+    .hero h1{ font-family: Montserrat, Inter, system-ui; font-weight:800; font-size:clamp(2rem, 6vw, 4rem); line-height:1.05; margin:.8rem 0 1rem; text-shadow:0 10px 30px rgba(0,0,0,.35); }
+    .hero p{ max-width:720px; margin-inline:auto; color:#e6e9ff; font-size:clamp(1rem, 2.5vw, 1.15rem); }
+    .hero-actions{ margin-top:1.6rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; }
+    .btn{ display:inline-flex; align-items:center; gap:.55rem; padding:.9rem 1.2rem; border-radius:12px; font-weight:700; border:1px solid transparent; transition:transform .06s ease; }
+    .btn:active{ transform:translateY(1px); }
+    .btn.primary{ background:var(--accent); color:#fff; box-shadow:0 10px 24px rgba(255,111,0,.35); }
+    .btn.primary:hover{ background:var(--accent-600); }
+    .btn.ghost{ background:rgba(255,255,255,.08); color:#fff; border-color:rgba(255,255,255,.22); }
+
+   
+    section{ padding: clamp(2.2rem, 4vw, 3rem) 0; }
+    .section-title{ font-family: Montserrat, Inter, system-ui; font-weight:800; color:var(--primary); font-size:clamp(1.6rem, 3.4vw, 2.2rem); margin-bottom:1.2rem; text-align:center; }
+    .section-lead{ text-align:center; color:var(--muted); max-width:780px; margin-inline:auto; }
+
+
+    .intro{ text-align:center; }
+    .intro p{ max-width:880px; margin: .6rem auto; }
+
+
+    .grid{
+      display:grid; gap:1.2rem; margin-top:1.4rem;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .card{ grid-column: span 4; background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; border:1px solid rgba(13,24,64,.06); }
+    .card img{ aspect-ratio: 16/10; object-fit:cover; }
+    .card-body{ padding:1rem 1.1rem 1.2rem; }
+    .card h3{ margin:.2rem 0 .4rem; font-size:1.25rem; color:var(--primary-600); }
+    .card p{ margin:0; color:#333; }
+    @media (max-width: 960px){ .card{ grid-column: span 6; } }
+    @media (max-width: 640px){ .card{ grid-column: span 12; } }
+
+    
+    .timeline{ position:relative; max-width:900px; margin:1.8rem auto 0; }
+    .timeline::before{ content:""; position:absolute; left:22px; top:0; bottom:0; width:3px; background:linear-gradient(var(--primary), #aab4ff); border-radius:3px; opacity:.35; }
+    .step{ position:relative; display:flex; gap:1rem; padding:.6rem 0 1.1rem 0; }
+    .bullet{ width:46px; height:46px; border-radius:50%; background:#fff; box-shadow:var(--shadow); border:2px solid var(--ring); display:grid; place-items:center; flex:0 0 46px; }
+    .step h4{ margin:0; font-size:1.1rem; color:var(--primary-600); }
+    .step p{ margin:.25rem 0 0; color:#333; }
+
+    
+    .cta-strip{ background:linear-gradient(90deg, var(--primary), #5164d2); color:#fff; border-radius:var(--radius); padding:1.4rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; box-shadow: var(--shadow); margin-top: 2rem; flex-wrap:wrap; }
+    .cta-strip .actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+
+
+    footer{ padding:2.2rem 0 3rem; color:#6b7190; }
+    .foot{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; border-top:1px solid rgba(13,24,64,.08); padding-top:1.4rem; }
+    .foot small{ opacity:.8; }
+
+   
+    .center{ text-align:center; }
+    .mt-2{ margin-top:.75rem; }
+    .mt-3{ margin-top:1.2rem; }
+    .mt-5{ margin-top:2rem; }
+    .btn-wide{ padding:.95rem 1.4rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Access Canada Home">
+        <span>Access Canada</span>
+      </a>
+      <button class="burger" aria-label="Open menu" id="burger" title="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="nav-links">
+        <a href="aboutus.html">About us</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#process">Process</a>
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdx2h769THWlKSXsEx42eiVUhmHw9sFxZiHi03x4B0g7JwFyA/viewform?usp=sf_link">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="sheet" role="dialog" aria-modal="true" aria-label="Mobile menu">
+      <a href="aboutus.html" onclick="closeDrawer()">About us</a>
+      <a href="#requirements" onclick="closeDrawer()">Requirements</a>
+      <a href="#process" onclick="closeDrawer()">Process</a>
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdx2h769THWlKSXsEx42eiVUhmHw9sFxZiHi03x4B0g7JwFyA/viewform?usp=sf_link">Apply Now</a>
+    </div>
+  </div>
+
+  <header id="top" class="hero" role="banner">
+    <div class="container hero-inner">
+      <span class="eyebrow">HOST FAMILIES WANTED</span>
+      <p>Become a host family for international students from Japan in Toronto (GTA), Ottawa, and Montreal. English speaking home and make some memories with student.</p>
+      <div class="hero-actions">
+        <a class="btn primary btn-wide" href="https://docs.google.com/forms/d/e/1FAIpQLSdx2h769THWlKSXsEx42eiVUhmHw9sFxZiHi03x4B0g7JwFyA/viewform?usp=sf_link">Apply to Host</a>
+        <a class="btn ghost btn-wide" href="#about">Learn more</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="intro container">
+    <h2 class="section-title">Become a Host Family</h2>
+    <p>Would you like to become a host family for international students from Japan? Access Canada is looking for caring homes in <strong>Toronto (GTA)</strong>, <strong>Ottawa</strong>, and <strong>Montreal</strong>. Placements range from <strong>1–4 weeks</strong> to <strong>several months or a year</strong>. If you meet the requirements below, we’d love to hear from you!</p>
+  </section>
+
+
+  <section id="requirements" class="container">
+    <h2 class="section-title">Requirements</h2>
+    <p class="section-lead">Provide a safe, comfortable, and English speaking environment for students to thrive.</p>
+
+    <div class="grid mt-3">
+   
+      <article class="card" aria-label="Private room requirement">
+        <img src="study.jpeg" alt="Cozy, bright student bedroom with desk" />
+        <div class="card-body">
+          <h3>Private Room</h3>
+          <p>A comfortable private bedroom with a bed, window, desk, closet, chair, and desk lamp.</p>
+        </div>
+      </article>
+
+      <article class="card" aria-label="Meals requirement">
+        <img src="students.jpeg" alt="Students sharing a meal at a dining table" />
+        <div class="card-body">
+          <h3>Meals</h3>
+          <p>Provide <strong>3 nutritious meals a day</strong>. Breakfast can be self‑service.</p>
+        </div>
+      </article>
+
+      <article class="card" aria-label="Language requirement">
+        <img src="apply copy.jpg" alt="Conversation practice in English" />
+        <div class="card-body">
+          <h3>Language</h3>
+          <p>Offer an <strong>English speaking environment</strong> while the student is present.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="cta-strip mt-5" role="complementary" aria-label="Apply call to action">
+      <div>
+        <strong>Ready to apply?</strong>
+    
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdx2h769THWlKSXsEx42eiVUhmHw9sFxZiHi03x4B0g7JwFyA/viewform?usp=sf_link">Go to Application Form</a>
+        <a class="btn" style="border:1px solid rgba(42,59,140,.25)" href="#process">See the Process</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="container">
+    <h2 class="section-title">Application Process</h2>
+
+    <div class="timeline" aria-label="Three step process timeline">
+      <div class="step">
+        <div class="bullet" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h4>STEP 1 — Apply</h4>
+          <p>Fill out the online application form. If you have questions, use the contact form — we’re happy to help.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="bullet" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2.2"/><path d="M7 9h10M7 13h10M7 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h4>STEP 2 — Confirmation Email</h4>
+          <p>Access Canada will email to confirm your application and next steps. Reply with any details we request.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="bullet" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11h18M12 3v18" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2.2"/></svg>
+        </div>
+        <div>
+          <h4>STEP 3 — Home Visit</h4>
+          <p>We will visit your home to check the living room, dining room, private room, bathroom, laundry, cleanliness, and safety.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="center mt-5">
+      <a class="btn primary btn-wide" href="https://docs.google.com/forms/d/e/1FAIpQLSdx2h769THWlKSXsEx42eiVUhmHw9sFxZiHi03x4B0g7JwFyA/viewform?usp=sf_link">Apply to Host</a>
+      <a class="btn btn-wide" style="border:1px solid rgba(42,59,140,.25)" href="https://docs.google.com/forms/d/e/1FAIpQLSefGC9YaAUlS6BP8kYRcKMCyP2UEFyzCTVkjsntzbl0jOOg3g/viewform?usp=sf_link">Contact Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div class="brand"><span>Access Canada</span></div>
+      <small>© <span id="y"></span> Access Canada.</small>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    const closeDrawer = () => drawer.classList.remove('open');
+    burger?.addEventListener('click', () => drawer.classList.add('open'));
+    drawer?.addEventListener('click', (e) => { if(e.target === drawer) closeDrawer(); });
+
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    window.closeDrawer = closeDrawer;
+  </script>
+</body>
+</html>
